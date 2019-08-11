@@ -28,3 +28,6 @@ SpringFactoriesLoader属于Spring框架私有的一种扩展方案，其主要�
 所以，@EnableAutoConfiguration自动配置的魔法其实就变成了:  从classpath中搜寻所有META—INF/spring.factories配置文件，并将其中org.springframework.boot.autoconfigure.EnableAutoConfiguration对应的配置项通过反射实例化为对应的标注了@Configuration的JavaConfig形式的IoC容器配置类，然后汇总为一个并加载到IoC容器。
 
 * spring.provide *   被使用STS IDE工具
+
+#### @ComponentScan 
+可以扫描到 @Controller @Service @Resporitory @Configuration @Component 等组件
