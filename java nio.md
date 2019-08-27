@@ -4,5 +4,5 @@ tags: nio
 grammar_cjkRuby: true
 ---
 
-#### 同步 VS 异步
+#### 同步，异步和阻塞，非阻塞的联系和区别
 
