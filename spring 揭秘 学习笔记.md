@@ -19,3 +19,14 @@ ioc容器包括两个阶段
 
 
 #### Bean的实例化阶段
+
+AbstractAutowireCapableBeanFactory
+BeanUtils
+AutowiredAnnotationBeanPostProcessor -->buildAutowiringMetadata
+MapperProxy
+
+ProxyFactory
+
+DefaultAopProxyFactory
+
+CglibAopProxy
