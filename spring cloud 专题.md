@@ -17,7 +17,7 @@ Eureka客户端在程序关闭时向Eureka服务器发送取消请求。 发送�
 
 5.Eviction 服务剔除 在默认的情况下，当Eureka客户端连续90秒没有向Eureka服务器发送服务续约，即心跳，Eureka服务器会将该服务实例从服务注册列表删除，即服务剔除。
 
-## Ribbon 分析
+## Ribbon 原理
 
 1.负载均衡器是从EurekaClient获取服务信息，并根据IRule去路由，并且根据IPing去判断服务的可用性
 
@@ -32,14 +32,15 @@ Eureka客户端在程序关闭时向Eureka服务器发送取消请求。 发送�
 
 而RestTemplate 被@LoadBalance注解后，能够用负载均衡，主要是维护了一个被@LoadBalance注解的RestTemplate列表，并给列表中的RestTemplate添加拦截器，进而交给负载均衡器去处理。
 
-## Feign
+## Feign 原理
 
 总到来说，Feign的源码实现的过程如下：
 
-首先通过@EnableFeignCleints注解开启FeignCleint
-根据Feign的规则实现接口，并加@FeignCleint注解
-程序启动后，会进行包扫描，扫描所有的@ FeignCleint的注解的类，并将这些信息注入到ioc容器中。
-当接口的方法被调用，通过jdk的代理，来生成具体的RequesTemplate
-RequesTemplate在生成Request
-Request交给Client去处理，其中Client可以是HttpUrlConnection、HttpClient也可以是Okhttp
-最后Client被封装到LoadBalanceClient类，这个类结合类Ribbon做到了负载均衡。
+1.首先通过@EnableFeignCleints注解开启FeignCleint
+2.根据Feign的规则实现接口，并加@FeignCleint注解
+3.程序启动后，会进行包扫描，扫描所有的@ FeignCleint的注解的类，并将这些信息注入到ioc容器中。
+4.当接口的方法被调用，通过jdk的代理，来生成具体的RequesTemplate
+5.RequesTemplate在生成Request
+6.Request交给Client去处理，其中Client可以是7.HttpUrlConnection、HttpClient也可以是Okhttp
+8.最后Client被封装到LoadBalanceClient类，这个类结合类Ribbon做到了负载均衡。
+
