@@ -44,3 +44,5 @@ Eureka客户端在程序关闭时向Eureka服务器发送取消请求。 发送�
 6.Request交给Client去处理，其中Client可以是7.HttpUrlConnection、HttpClient也可以是Okhttp
 8.最后Client被封装到LoadBalanceClient类，这个类结合类Ribbon做到了负载均衡。
 
+## zuul 原理
+
